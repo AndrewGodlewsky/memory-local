@@ -1,0 +1,3 @@
+# Preserve the earlier evaluation copies of the upstream executable byte-for-byte.
+optmem-demo/tools/memo -text
+trials/optmem/memo -text

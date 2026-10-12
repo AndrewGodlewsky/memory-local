@@ -1,0 +1,12 @@
+# Python runtime files at any depth.
+__pycache__/
+*.pyc
+
+# Repository-local memory stores and test runtimes.
+.optmem/
+.test-work/
+.tmp-tests/
+
+# Machine-generated OptMem smoke-test stores and reports.
+/trials/optmem/store-*/
+/trials/optmem/smoke-results.json
