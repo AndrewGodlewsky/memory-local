@@ -1,6 +1,12 @@
 # Repository memory: proposed trial
 
-October 8, 2026. Planning artifact, not an installed skill or approved architecture.
+Historical proposal from October 8, 2026. The assumptions and sequence below
+predate the implementation work. Current scope and the still-pending adoption
+gate are tracked in the [implementation map](https://github.com/AndrewGodlewsky/memory-local/issues/1)
+and [comparison trial](https://github.com/AndrewGodlewsky/memory-local/issues/6).
+The prototype skill now uses shared documents for current agreed intent and
+ignored OptMem history for local context; current implementation alone does not
+supersede an accepted decision. Proposed thresholds below remain unapproved.
 
 ## Working assumption
 
