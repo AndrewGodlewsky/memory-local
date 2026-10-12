@@ -5,9 +5,10 @@ description: Set up repository-local OptMem memory when a project needs decision
 
 # Repository memory
 
-Install a local memory store and persistent project instructions so a fresh agent
-can recall an explicitly saved decision. This first slice is an evaluation:
-automatic capture and sharing knowledge with teammates are separate work.
+Install a local memory store and persistent project instructions so agents
+capture useful project knowledge during ordinary work and recall it in later
+chats. This is an evaluation of local memory; sharing knowledge with teammates
+is separate work.
 
 1. Identify the intended Git root and read its agent instructions and existing
    memory conventions. Reuse the existing setup when present; resolve conflicts
@@ -18,8 +19,9 @@ automatic capture and sharing knowledge with teammates are separate work.
    required for setup. It preserves existing instructions and memory on rerun,
    and refuses conflicting tool files rather than overwriting them.
 3. Run `python <repo>/tools/memory/memo.py wake` and follow any requested pages or
-   summaries. If the user supplied a decision to remember, save that decision
-   through `note`, complete requested `nap` summaries, then verify with `recall`.
+   summaries. Save supplied or established project knowledge through `note`
+   according to the installed instructions, complete requested `nap` summaries,
+   then verify with `recall`.
    Leave a new store empty when no project knowledge was supplied.
 4. Report the installed paths and verification result. To verify persistence,
    give a fresh chat the repository and a task requiring the saved decision;

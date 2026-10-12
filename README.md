@@ -1,9 +1,11 @@
 # Repository memory
 
 An experimental skill for preserving project intent between agent chats. The
-first slice sets up [OptMem](https://github.com/VictorTaelin/OptMem) inside one
-repository so an agent can save an explicit decision and retrieve it in a fresh
-chat. We are testing whether this helps before adopting it more broadly.
+setup installs [OptMem](https://github.com/VictorTaelin/OptMem) inside one repository
+with instructions to capture durable knowledge during ordinary work and retrieve
+it in a fresh chat. Explicit "remember this" requests are supported too. The
+instructions are implemented; their behavioral reliability is still being tested
+before broader adoption.
 
 See the [project language](CONTEXT.md) for what counts as project intent and
 shared knowledge, and the [implementation map](https://github.com/AndrewGodlewsky/memory-local/issues/1)
@@ -50,16 +52,20 @@ python tools/memory/memo.py wake
 python tools/memory/memo.py recall 'SQLite|storage'
 ```
 
-OptMem stores explicit notes and summaries written by the working agent. It has
+The installed instructions tell the agent to save accepted decisions, reasons,
+constraints, supported findings, and corrections when they become established,
+then check for unsaved context at handoff. Proposals and unresolved questions keep
+their status; routine command successes do not need notes.
+
+OptMem stores selected notes and summaries written by the working agent. It has
 no background model or automatic conversation capture. A printed summary request
 needs the agent to complete the corresponding `nap` command before normal work
 continues. Original notes remain available even when summaries omit details.
 
 The store is Git-ignored and persists only in that working environment. A teammate
-cloning the repository does not receive those memories. Automatic capture during
-ordinary work, shared durable decisions, reliable correction retrieval, adoption
-trials, and general repair are later issue phases; they are not implemented by
-this first setup slice.
+cloning the repository does not receive those memories. Shared durable decisions,
+retrieval across deep summaries and later corrections, adoption trials, and general
+repair remain later issue phases.
 
 ## Demo and research
 
@@ -82,3 +88,5 @@ python -m unittest discover -s tests -v
 
 These automated checks exercise the setup and storage mechanics. Fresh-agent
 recall and later teammate trials provide separate evidence about agent behavior.
+See the observed [setup recall](research/setup-validation.md) and
+[ordinary-work capture](research/automatic-capture-validation.md) results and their limits.
